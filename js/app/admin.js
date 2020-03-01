@@ -30,7 +30,7 @@ function userFormSubmit(){
 		.on('error',function(error)
 		{
 		    handleGenericError(error.message);
-		    return;   
+
 		});
 	}
 }
@@ -40,13 +40,13 @@ function addCultivationBatch()
 
     if (batchFormInstance.validate())
     {
-        var farmerRegistrationNo = $("#farmerRegistrationNo").val().trim();
-        var farmerName = $("#farmerName").val().trim();
-        var farmerAddress = $("#farmerAddress").val().trim();
+        var prosumerRegistrationNo = $("#powerstationRegistrationNo").val().trim();
+        var prosumerName = $("#prosumerName").val().trim();
+        var prosumerAddress = $("#prosumerAddress").val().trim();
         var exporterName = $("#exporterName").val().trim();
         var importerName = $("#importerName").val().trim();
 
-        globMainContract.methods.addBasicDetails(farmerRegistrationNo, farmerName, farmerAddress, exporterName, importerName)
+        globMainContract.methods.addBasicDetails(prosumerRegistrationNo, prosumerName, prosumerAddress, exporterName, importerName)
         .send({
             from: globCoinbase,
             to: globMainContract._address
@@ -63,7 +63,7 @@ function addCultivationBatch()
         })
         .on('error', function (error) {
             handleGenericError(error.message);
-            return;
+
         });
     }
 }
@@ -72,10 +72,10 @@ function addCultivationBatch()
 function getCultivationEvents(contractRef) {
     contractRef.getPastEvents('PerformCultivation', {
         fromBlock: 0
-    }).then(function (events) 
+    }).then(function (events)
     {
     	$("#totalBatch").html(events.length);
-        
+
         var finalEvents = [];
         $.each(events,function(index,elem)
         {
@@ -98,10 +98,10 @@ function getCultivationEvents(contractRef) {
 				    type:'image',
 				    mainClass: 'mfp-zoom-in'
 				});
-	        }    
+	        }
 
             counterInit();
-        },1000); 
+        },1000);
 
     }).catch(error => {
         console.log(error)
@@ -111,9 +111,9 @@ function getCultivationEvents(contractRef) {
 function buildCultivationTable(finalEvents)
 {
     var table = "";
-    
+
     for (var tmpDataIndex in finalEvents)
-    {   
+    {
         var elem = finalEvents[tmpDataIndex];
 
         var batchNo = elem.batchNo;
@@ -121,15 +121,15 @@ function buildCultivationTable(finalEvents)
         var tr = "";
         var url = 'https://rinkeby.etherscan.io/tx/'+transactionHash;
         var qrCode = 'https://chart.googleapis.com/chart?cht=qr&chld=H|1&chs=400x400&chl='+url;
-			
+
         var commBatchTd = `<td>`+batchNo+` <a href="`+url+`" class="text-danger" target="_blank"><i class="fa fa-external-link"></i></a></td>`;
         var commQrTd = `<td><a href="`+qrCode+`" title="`+transactionHash+`" class="qr-code-magnify" data-effect="mfp-zoom-in">
 				        	<img src="`+qrCode+`" class="img-responsive" style="width:30px; height:30px;">
 				        </a>
 				    </td>`;
-		var commActionTd = `<td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>`;		    
-		
-		if (elem.status == "FARM_INSPECTION") {
+		var commActionTd = `<td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>`;
+
+		if (elem.status == "POWERSTATION_INSPECTION") {
             tr = `<tr>
             		`+commBatchTd+commQrTd+`
                     <td><span class="label label-warning font-weight-100">Processing</span></td>
@@ -195,14 +195,14 @@ function buildCultivationTable(finalEvents)
     }
 
     return table;
-    
+
 }
 
 function getBatchStatus(contractRef, batchNo)
 {
     return contractRef.methods.getNextAction(batchNo)
         .call();
-       
+
 }
 
 

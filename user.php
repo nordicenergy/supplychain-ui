@@ -1,5 +1,5 @@
 <?php include('templates/_header.php'); ?>
-        
+
 
             <div class="container-fluid">
                 <div class="row bg-title">
@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="alert alert-info" id="divOngoingTransaction" style="display: none">Ongoing Transaction: <span id="linkOngoingTransaction">None</span> </div>
-                    </div>    
+                    </div>
                 </div>
 
                 <!-- /.row -->
@@ -51,31 +51,31 @@
                 </div>
                 <!--row -->
                 <!-- /.row -->
-                
+
 
                                <!-- row -->
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="white-box">
-                            <h3 class="box-title">Batches Overview</h3> 
+                            <h3 class="box-title">Batches Overview</h3>
                             <div class="table-responsive">
                                 <table class="table product-overview" id="userCultivationTable">
                                     <thead>
                                         <tr>
                                             <th>Batch ID</th>
-                                            <th>Farm Inspector</th>
+                                            <th>PowerStation Inspector</th>
                                             <th>Harvester</th>
                                             <th>Exporter</th>
                                             <th>Importer</th>
                                             <th>Processor</th>
                                             <th>View</th>
-                                            
+
                                         </tr>
                                     </thead>
                                     <tbody>
                                          <tr>
                                              <td colspan="7" align="center">No Data Available</td>
-                                         </tr>                                         
+                                         </tr>
                                     </tbody>
                                 </table>
 
@@ -94,7 +94,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="fullname">Full Name <i class="red">*</i></label>
                                                     <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Name" data-parsley-required="true">
-                                                </div>                              
+                                                </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="contactNumber">Contact No<i class="red">*</i></label>
                                                     <input type="text" class="form-control" id="contactNumber" name="contactNumber" placeholder="Contact No." data-parsley-required="true" data-parsley-type="digits" data-parsley-length="[10, 15]" maxlength="15">
@@ -103,16 +103,16 @@
                                                     <label class="control-label" for="role">Role </label>
                                                     <select class="form-control" id="role" disabled="true" name="role">
                                                         <option value="">Select Role</option>
-                                                        <option value="FARM_INSPECTION">Farm Inspection</option>
+                                                        <option value="POWERSTATION_INSPECTION">Solar Farm Inspection</option>
                                                         <option value="HARVESTER">Harvester</option>
                                                         <option value="EXPORTER">Exporter</option>
                                                         <option value="IMPORTER">Importer</option>
                                                         <option value="PROCESSOR">Processor</option>
-                                                    </select>    
+                                                    </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="isActive">User Status</label>
-                                                    <input type="checkbox" class="js-switch" data-color="#99d683" data-secondary-color="#f96262" id="isActive" name="isActive" data-size="small"/>
+                                                    <input type="checkbox" class="js-switch" data-color="#e6b800" data-secondary-color="#e6b800" id="isActive" name="isActive" data-size="small"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="userProfileHash">Profile Image <i class="red">*</i></label>
@@ -121,7 +121,7 @@
                                                     <span id="imageHash"></span>
                                                 </div>
                                             </fieldset>
-                                        
+
                                     </div>
                                     <div class="modal-footer">
                                         <i style="display: none;" class="fa fa-spinner fa-spin"></i>
@@ -132,23 +132,23 @@
                             </div>
                         </div>
 
-                            
 
-                            <!-- Farm Inspection Form -->
+
+                            <!-- PowerStation Inspection Form -->
                             <form id="farmInspectionForm" class="mfp-hide white-popup-block">
                                 <h1>Farm Inspection</h1><br>
                                 <fieldset style="border:0;">
                                     <!-- <div class="form-group">
                                         <label class="control-label" for="InspectorId">Inspector ID Number</label>
                                         <input type="text" class="form-control" id="InspectorId" name="inspectorId" placeholder="inspector id number" data-parsley-required="true">
-                                    </div>   -->                            
+                                    </div>   -->
                                     <div class="form-group">
                                         <label class="control-label" for="typeOfSeed">Type of Seed</label>
                                         <input type="text" class="form-control" id="typeOfSeed" name="typeOfSeed" placeholder="type of seed" data-parsley-required="true">
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="coffeeFamily">Coffee Family</label>
-                                        <input type="text" class="form-control" id="coffeeFamily" name="coffeeFamily" placeholder="coffee family" data-parsley-required="true">
+                                        <label class="control-label" for="supplier">Energy provider</label>
+                                        <input type="text" class="form-control" id="nordicEnergy" name="upplier" placeholder="Supplier" data-parsley-required="true">
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="fertilizer">Fertilizer Used</label>
@@ -156,7 +156,7 @@
                                     </div>
                                      <div class="form-group float-right">
                                         <button type="reset" class="btn btn-default waves-effect" >Reset</button>
-                                        <button type="button" id="updateFarmInspection" class="btn btn-primary">Submit</button>
+                                        <button type="button" id="updatePowerStationInspection" class="btn btn-primary">Submit</button>
                                     </div>
                                 </fieldset>
                             </form>
@@ -165,10 +165,10 @@
                             <form id="harvesterForm" class="mfp-hide white-popup-block ">
                                 <h1>Harvesting</h1><br>
                                 <fieldset style="border:0;">
-                                                            
+
                                     <div class="form-group">
-                                        <label class="control-label" for="cropVariety">Coffee Variety</label>
-                                        <input type="text" class="form-control" id="cropVariety" name="cropVariety" placeholder="coffee variety" data-parsley-required="true">
+                                        <label class="control-label" for="cropVariety">PowerStation Variety</label>
+                                        <input type="text" class="form-control" id="cropVariety" name="cropVariety" placeholder="PowerStation variety" data-parsley-required="true">
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="temperatureUsed">Temperature (in Fahrenheit)</label>
@@ -177,7 +177,7 @@
                                      <div class="form-group">
                                         <label class="control-label" for="humidity">Humidity</label>
                                         <input type="text" class="form-control" id="humidity" name="humidity" placeholder="humidity" data-parsley-required="true">
-                                    </div>                                
+                                    </div>
                                     <div class="form-group float-right">
                                         <button type="reset" class="btn btn-default waves-effect">Reset</button>
                                         <button type="button" id="updateHarvest"class="btn btn-primary">Submit</button>
@@ -191,32 +191,32 @@
                                 <fieldset style="border:0;">
 
                                     <div class="form-group">
-                                        <label class="control-label" for="quantity">Quantity (in Kg)</label>
+                                        <label class="control-label" for="quantity">Quantity (in kWh)</label>
                                         <input type="number" min="1" class="form-control" id="quantity" name="quantity" placeholder="Quantity" data-parsley-required="true">
-                                    </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         <label class="control-label" for="destinationAddress">Destination Address</label>
                                         <input type="text" class="form-control" id="destinationAddress" name="destinationAddress" placeholder="Destination Address" data-parsley-required="true">
-                                    </div> 
+                                    </div>
 
 
                                     <div class="form-group">
                                         <label class="control-label" for="shipName">Ship Name</label>
                                         <input type="text" class="form-control" id="shipName" name="shipName" placeholder="Ship Name" data-parsley-required="true">
-                                    </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         <label class="control-label" for="shipNo">Ship No</label>
                                         <input type="text" class="form-control" id="shipNo" name="shipNo" placeholder="Ship No" data-parsley-required="true">
-                                    </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         <label class="control-label" for="estimateDateTime">Estimate Datetime</label>
                                         <input type="text" class="form-control datepicker-master" id="estimateDateTime" name="estimateDateTime" placeholder="Estimate Datetime" data-parsley-required="true">
                                     </div>
 
-                                    
+
 
                                      <div class="form-group">
                                         <label class="control-label" for="exporterId">Exporter ID</label>
@@ -244,30 +244,30 @@
                                     <div class="form-group">
                                         <label class="control-label" for="shipName">Ship Name</label>
                                         <input type="text" class="form-control" id="shipName" name="shipName" placeholder="Ship Name" data-parsley-required="true">
-                                    </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         <label class="control-label" for="shipNo">Ship No</label>
                                         <input type="text" class="form-control" id="shipNo" name="shipNo" placeholder="Ship No" data-parsley-required="true">
-                                    </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         <label class="control-label" for="transportInfo">Transport Info</label>
                                         <input type="text" class="form-control" id="transportInfo" name="transportInfo" placeholder="Transport Info" data-parsley-required="true">
-                                    </div> 
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label" for="warehouseName">Warehouse Name</label>
                                         <input type="text" class="form-control" id="warehouseName" name="warehouseName" placeholder="Warehouse Name" data-parsley-required="true">
-                                    </div> 
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label" for="warehouseAddress">Warehouse Address</label>
                                         <input type="text" class="form-control" id="warehouseAddress" name="warehouseAddress" placeholder="Warehouse Address" data-parsley-required="true" >
-                                    </div>                              
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label" for="importerId">Importer Id</label>
                                         <input type="number" min="1" class="form-control" id="importerId" name="importerId" placeholder="Importer Id" data-parsley-required="true" >
-                                    </div>                              
-                                    
+                                    </div>
+
                                      <div class="form-group float-right">
                                         <button type="reset" class="btn btn-default waves-effect">Reset</button>
                                         <button type="button" id="updateImport"class="btn btn-primary">Submit</button>
@@ -282,29 +282,29 @@
                                     <div class="form-group">
                                         <label class="control-label" for="quantity">Quantity (in Kg)</label>
                                         <input type="number" min="1" class="form-control" id="quantity" name="quantity" placeholder="Quantity" data-parsley-required="true">
-                                    </div> 
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label" for="processingTemperature">Temperature (in Fahrenheit)</label>
                                         <input type="text" class="form-control" id="processingTemperature" name="temperature" placeholder="Temperature" data-parsley-required="true">
-                                    </div>                              
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label" for="rostingDuration">Time for Roasting (in Seconds)</label>
                                         <input type="number" min="1" class="form-control" id="rostingDuration" name="rostingDuration" placeholder="Time for roasting" data-parsley-required="true" >
                                     </div>
-                               
+
                                     <div class="form-group">
                                         <label class="control-label" for="internalBatchNo">Internal Batch no</label>
                                         <input type="text" class="form-control" id="internalBatchNo" name="internalBatchNo" placeholder="Internal Batch no" data-parsley-required="true">
                                     </div>
-                           
+
                                     <div class="form-group">
                                         <label class="control-label" for="packageDateTime">Packaging Date & Time</label>
                                         <input type="text" class="form-control datepicker-master" id="packageDateTime" name="packageDateTime" placeholder="Packaging Date" data-parsley-required="true">
-                                    </div> 
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label" for="processorName">Processor Name</label>
                                         <input type="text" class="form-control" id="processorName" name="processorName" placeholder="Processor Name" data-parsley-required="true">
-                                    </div>                              
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label" for="processorAddress">Processor Address</label>
                                         <input type="text" class="form-control" id="processorAddress" name="processorAddress" placeholder="Processor Address" data-parsley-required="true">
@@ -318,7 +318,7 @@
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>
             </div>
             <!-- /.container-fluid -->
 
@@ -331,7 +331,7 @@
 
             function initSwitch(){
                 /*For User Form Pop Up*/
-                switchery = new Switchery($("#isActive")[0], $("#isActive").data());    
+                switchery = new Switchery($("#isActive")[0], $("#isActive").data());
             }
 
             function initDateTimePicker(){
@@ -348,5 +348,5 @@
                 });
             }
         </script>
-        
-<?php include('templates/_footer.php');?>   
+
+<?php include('templates/_footer.php');?>

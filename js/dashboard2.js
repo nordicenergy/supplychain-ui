@@ -32,31 +32,31 @@ jQuery('#world-map-marker').vectorMap(
                     'stroke-opacity': 0.4
                 },
                 },
-   
+
     markers : [{
         latLng : [21.00, 78.00],
         name : 'INDIA : 350'
-      
+
       },
       {
         latLng : [-33.00, 151.00],
         name : 'Australia : 250'
-        
+
       },
       {
         latLng : [36.77, -119.41],
         name : 'USA : 250'
-      
+
       },
       {
         latLng : [55.37, -3.41],
         name : 'UK   : 250'
-      
+
       },
       {
         latLng : [25.20, 55.27],
         name : 'UAE : 250'
-      
+
       }],
       series: {
                     regions: [{
@@ -73,16 +73,16 @@ jQuery('#world-map-marker').vectorMap(
     selectedRegions: [],
     enableZoom: false,
     hoverColor: '#fff',
-    
-    
+
+
 });
 
  window.addEventListener('resize', function() {
-        
+
     });
- 
+
  // Real Time chart
-        
+
 
         var data = [],
             totalPoints = 100;
@@ -145,7 +145,7 @@ jQuery('#world-map-marker').vectorMap(
             xaxis: {
                 show: false
             },
-            colors: ["#01c0c8"],
+            colors: [" #cca300"],
             grid: {
                 color: "#AFAFAF",
                 hoverable: true,
@@ -158,7 +158,7 @@ jQuery('#world-map-marker').vectorMap(
                 content: "Y: %y",
                 defaultTheme: false
             }
-        
+
 
         });
 
@@ -175,14 +175,14 @@ jQuery('#world-map-marker').vectorMap(
         update();
          $('.vcarousel').carousel({
             interval: 3000
-         })
+         });
          $("body").trigger("resize");
 
 //sparkline charts
 $(document).ready(function() {
-   var sparklineLogin = function() { 
-       
-  
+   var sparklineLogin = function() {
+
+
         $("#sparkline8").sparkline([2,4,4,6,8,5,6,4,8,6,6,2 ], {
             type: 'line',
             width: '100%',
@@ -214,10 +214,10 @@ $(document).ready(function() {
             highlightLineColor: 'rgba(0, 0, 0, 0.2)',
             highlightSpotColor: '#ffdb4a'
         });
-       
-   }
+
+   };
     var sparkResize;
- 
+
         $(window).resize(function(e) {
             clearTimeout(sparkResize);
             sparkResize = setTimeout(sparklineLogin, 500);
@@ -232,5 +232,5 @@ $(document).ready(function() {
           position: 'right',
           size: "5px",
           color: '#dcdcdc',
-          
+
       });

@@ -1,10 +1,10 @@
 var batchNo;
-window.addEventListener('load', function() 
-{	
-  batchNo = $("#batchNo").val();
+window.addEventListener('load', function()
+{
+	batchNo = $("#batchNo").val();
 
 	if(batchNo!="" || batchNo!=null || batchNo!=undefined){
-		
+
 		getCultivationData(globMainContract,batchNo,function(result)
 		{
 			var parentSection = $("#cultivationSection");
@@ -15,16 +15,16 @@ window.addEventListener('load', function()
 		});
 
 		getFarmInspectorData(globMainContract,batchNo,function(result){
-			
-			var parentSection = $("#farmInspectionSection"); 
-			var activityName = "DoneInspection";  
-			var built = buildFarmInspectionBlock(result);
+
+			var parentSection = $("#PowerStationInspectionSection");
+			var activityName = "DoneInspection";
+			var built = buildPowerStationInspectionBlock(result);
 
 			populateSection(parentSection,built,activityName,batchNo);
 		});
 
 		getHarvesterData(globMainContract,batchNo,function(result){
-			
+
 			var parentSection = $("#harvesterSection");
 			var activityName = "DoneHarvesting";
 			var built = buildHarvesterBlock(result);
@@ -33,34 +33,34 @@ window.addEventListener('load', function()
 		});
 
 		getExporterData(globMainContract,batchNo,function(result){
-			
+
 			var parentSection = $("#exporterSection");
 			var activityName = "DoneExporting";
-			var built = buildExporterBlock(result);   
+			var built = buildExporterBlock(result);
 
-			populateSection(parentSection,built,activityName,batchNo);             
+			populateSection(parentSection,built,activityName,batchNo);
 		});
 
 		getImporterData(globMainContract,batchNo,function(result){
 
-			 var parentSection = $("#importerSection");
-			 var activityName = "DoneImporting";
-			 var built = buildImporterBlock(result); 
+			var parentSection = $("#importerSection");
+			var activityName = "DoneImporting";
+			var built = buildImporterBlock(result);
 
-			 populateSection(parentSection,built,activityName,batchNo);              
+			populateSection(parentSection,built,activityName,batchNo);
 		});
 
 		getProcessorData(globMainContract,batchNo,function(result){
 			var parentSection = $("#processorSection");
 			var activityName = "DoneProcessing";
-			var built = buildProcessorBlock(result); 
+			var built = buildProcessorBlock(result);
 
-			populateSection(parentSection,built,activityName,batchNo);   
+			populateSection(parentSection,built,activityName,batchNo);
 
-      $('.qr-code-magnify').magnificPopup({
-          type:'image',
-          mainClass: 'mfp-zoom-in'
-      });
+			$('.qr-code-magnify').magnificPopup({
+				type:'image',
+				mainClass: 'mfp-zoom-in'
+			});
 
 		});
 	}
@@ -69,55 +69,55 @@ window.addEventListener('load', function()
 
 function populateSection(parentSection,built,activityName,batchNo)
 {
-  if(built.isDataAvail==true)
-  {
-  	getActivityTimestamp(activityName,batchNo, function(resultData)
-  	{
-     
-      if(resultData.dataTime)
-  		{
-        var phoneNoSec = '';
-        if(resultData.contactNo!='-'){
-          phoneNoSec = `<i class="fa fa-phone"></i> `+resultData.contactNo+`<br/>`;  
-        } 
+	if(built.isDataAvail==true)
+	{
+		getActivityTimestamp(activityName,batchNo, function(resultData)
+		{
 
-        var userAddress = resultData.user;
-        if($(window).width() <= 565){
-          userAddress = userAddress.substring(0,15)+'...';
-        }
+			if(resultData.dataTime)
+			{
+				var phoneNoSec = '';
+				if(resultData.contactNo!='-'){
+					phoneNoSec = `<i class="fa fa-phone"></i> `+resultData.contactNo+`<br/>`;
+				}
 
-        var refLink = 'https://rinkeby.etherscan.io/tx/'+resultData.transactionHash;
-        var html = `<span class="text-info"><i class='fa fa-user'> </i>
+				var userAddress = resultData.user;
+				if($(window).width() <= 565){
+					userAddress = userAddress.substring(0,15)+'...';
+				}
+
+				var refLink = 'https://rinkeby.etherscan.io/tx/'+resultData.transactionHash;
+				var html = `<span class="text-info"><i class='fa fa-user'> </i>
                         `+resultData.name+` (`+userAddress+`) <br/>
                         `+phoneNoSec+`
                     </span>
                     <i class='fa fa-clock-o'> </i> `+resultData.dataTime.toLocaleString()+`
                     <a href='`+refLink+`' target='_blank'><i class='fa fa-external-link text-danger'></i></a>
                    `;
-        $(parentSection).find(".activityDateTime").html(html);
-  			$(parentSection).find(".timeline-body .activityData").append('<img src="plugins/images/verified.jpg" alt="user-img" style="width:80px;height:80px" class="img-circle pull-right">');
-  		}
+				$(parentSection).find(".activityDateTime").html(html);
+				$(parentSection).find(".timeline-body .activityData").append('<img src="plugins/images/verified.jpg" alt="user-img" style="width:80px;height:80px" class="img-circle pull-right">');
+			}
 
-      if(resultData.transactionHash){
-        var url = 'https://rinkeby.etherscan.io/tx/'+resultData.transactionHash;
-        var qrCode = 'https://chart.googleapis.com/chart?cht=qr&chld=H|1&chs=400x400&chl='+url;
-        var qrCodeSec = `<a href="`+qrCode+`" title="`+resultData.transactionHash+`" class="qr-code-magnify pull-right" data-effect="mfp-zoom-in">
+			if(resultData.transactionHash){
+				var url = 'https://rinkeby.etherscan.io/tx/'+resultData.transactionHash;
+				var qrCode = 'https://chart.googleapis.com/chart?cht=qr&chld=H|1&chs=400x400&chl='+url;
+				var qrCodeSec = `<a href="`+qrCode+`" title="`+resultData.transactionHash+`" class="qr-code-magnify pull-right" data-effect="mfp-zoom-in">
                           <img src="`+qrCode+`" class="img-responsive" style="width:70px; height:70px; margin-top:-75px;"/>
                         </a>`;
 
-        $(parentSection).find(".activityQrCode").html(qrCodeSec);
-      }
-  	});
+				$(parentSection).find(".activityQrCode").html(qrCodeSec);
+			}
+		});
 
-	  var tmpTimelineBadge = $(parentSection).prev(".timeline-badge");
+		var tmpTimelineBadge = $(parentSection).prev(".timeline-badge");
 
-	
+
 		$(tmpTimelineBadge).removeClass("danger").addClass("success");
 		$(tmpTimelineBadge).find("i").removeClass().addClass("fa fa-check");
 	}
 
 
-	$(parentSection).find(".activityData").html(built.html); 
+	$(parentSection).find(".activityData").html(built.html);
 }
 
 function getActivityTimestamp(activityName, batchNo, callback)
@@ -129,32 +129,32 @@ function getActivityTimestamp(activityName, batchNo, callback)
 	{
 		try
 		{
-      web3.eth.getBlock(eventData[0].blockNumber,function(error,blockData)
+			web3.eth.getBlock(eventData[0].blockNumber,function(error,blockData)
 			{
-        var resultData = {};
+				var resultData = {};
 				var date = blockData.timestamp;
 				/* Convert Seconds to Miliseconds */
-			 	date = new Date(date * 1000);
-			 	// $("#cultivationDateTime").html("<i class='fa fa-clock-o'> </i> " + date.toLocaleString());
+				date = new Date(date * 1000);
+				// $("#cultivationDateTime").html("<i class='fa fa-clock-o'> </i> " + date.toLocaleString());
 
-        resultData.dataTime = date;
-        resultData.transactionHash = eventData[0].transactionHash;
+				resultData.dataTime = date;
+				resultData.transactionHash = eventData[0].transactionHash;
 
-        var userAddress = eventData[0].returnValues.user;
-        getUserDetails(globUserContract,userAddress,function(result){
-            if(userAddress == globAdminAddress){
-                resultData.name      = 'Admin';
-                resultData.contactNo = '-';
-            }else{
-                resultData.name      = result.name;
-                resultData.contactNo = result.contactNo;
-            }  
-            
-            resultData.user      = userAddress;
+				var userAddress = eventData[0].returnValues.user;
+				getUserDetails(globUserContract,userAddress,function(result){
+					if(userAddress == globAdminAddress){
+						resultData.name      = 'Admin';
+						resultData.contactNo = '-';
+					}else{
+						resultData.name      = result.name;
+						resultData.contactNo = result.contactNo;
+					}
 
-            callback(resultData);
-        });
-			})	
+					resultData.user      = userAddress;
+
+					callback(resultData);
+				});
+			})
 		}
 		catch(e)
 		{
@@ -167,22 +167,22 @@ function buildCultivationBlock(result)
 {
 	var cultivationData = {};
 	var registrationNo = result.registrationNo;
-	var farmerName     = result.farmerName;
-	var farmAddress    = result.farmAddress;
+	var prosumerName     = result.prosumerName;
+	var prosumerAddress    = result.farmAddress;
 	var exporterName   = result.exporterName;
 	var importerName   = result.importerName;
 
-	if(registrationNo!='' && farmerName!='' && farmAddress!='' && exporterName!='' && importerName!=''){
+	if(registrationNo!='' && prosumerName!='' && farmAddress!='' && exporterName!='' && importerName!=''){
 		cultivationData.html =  `<tr>
                                 <td><b>Registration No:</b></td>
                                 <td>`+registrationNo+` <i class="fa fa-check-circle verified_info"></i></td>
                             </tr>
                             <tr>
-                                <td><b>Farmer Name:</b></td>
-                                <td>`+farmerName+` <i class="fa fa-check-circle verified_info"></i></td>
+                                <td><b>Prosumer Name:</b></td>
+                                <td>`+prosumerName+` <i class="fa fa-check-circle verified_info"></i></td>
                             </tr>
                             <tr>
-                                <td><b>Farm Address:</b></td>
+                                <td><b>PoweStation Address:</b></td>
                                 <td>`+farmAddress+` <i class="fa fa-check-circle verified_info"></i></td>
                             </tr>
                             <tr>
@@ -194,28 +194,28 @@ function buildCultivationBlock(result)
                                 <td>`+importerName+` <i class="fa fa-check-circle verified_info"></i></td>
                             </tr>`;
 
-        cultivationData.isDataAvail = true;                    
-    }else{
-    	cultivationData.html = ` <tr>
+		cultivationData.isDataAvail = true;
+	}else{
+		cultivationData.html = ` <tr>
                                     <td colspan="2"><p>Information Not Avilable</p></td>
                             </tr>`;
 
-        cultivationData.isDataAvail = false;                                        
-    }
+		cultivationData.isDataAvail = false;
+	}
 
-    return cultivationData;
+	return cultivationData;
 }
 
 function buildFarmInspectionBlock(result){
-	var farmInspactorData = {};
-	var coffeeFamily      = result.coffeeFamily;
+	var powerstationInspactorData = {};
+	var nordicEnergy      = result.nordicEnergy;
 	var typeOfSeed        = result.typeOfSeed;
-	var fertilizerUsed    = result.fertilizerUsed;	
+	var fertilizerUsed    = result.fertilizerUsed;
 
-	if(coffeeFamily!='' && typeOfSeed!='' && fertilizerUsed!=''){
+	if(nordicEnergy!='' && typeOfSeed!='' && fertilizerUsed!=''){
 		farmInspactorData.html =  `<tr>
-                                    <td><b>Coffee Family:</b></td>
-                                    <td>`+coffeeFamily+` <i class="fa fa-check-circle verified_info"></i></td>
+                                    <td><b>Nordic Energy:</b></td>
+                                    <td>`+nordicEnergy+` <i class="fa fa-check-circle verified_info"></i></td>
                                   </tr>
                                   <tr>
                                     <td><b>Type of Seeds:</b></td>
@@ -225,15 +225,15 @@ function buildFarmInspectionBlock(result){
                                     <td><b>Fertilizer Used:</b></td>
                                     <td>`+fertilizerUsed+` <i class="fa fa-check-circle verified_info"></i></td>
                                   </tr>`;
-        farmInspactorData.isDataAvail = true;                          
-    }else{
-    	farmInspactorData.html = `<tr>
+		farmInspactorData.isDataAvail = true;
+	}else{
+		farmInspactorData.html = `<tr>
 	                                    <td colspan="2"><p>Information Not Avilable</p></td>
 	                            </tr>`;
-	    farmInspactorData.isDataAvail = false;                        
-    } 
+		farmInspactorData.isDataAvail = false;
+	}
 
-    return farmInspactorData;  
+	return farmInspactorData;
 }
 
 function buildHarvesterBlock(result){
@@ -255,16 +255,16 @@ function buildHarvesterBlock(result){
                                 <td><b>Humidity:</b></td>
                                 <td>`+humidity+`% <i class="fa fa-check-circle verified_info"></i></td>
                               </tr>`;
-        harvesterData.isDataAvail = true;                      
-    }else{
-    	harvesterData.html = `<tr>
+		harvesterData.isDataAvail = true;
+	}else{
+		harvesterData.html = `<tr>
                                     <td colspan="2"><p>Information Not Avilable</p></td>
                         </tr>`;
-        harvesterData.isDataAvail = false;                
-    }    
+		harvesterData.isDataAvail = false;
+	}
 
-    return harvesterData;
-}	
+	return harvesterData;
+}
 
 function buildExporterBlock(result){
 	var exporterData = {};
@@ -277,10 +277,10 @@ function buildExporterBlock(result){
 	var exporterId         = result.exporterId;
 
 	if(quantity!='' && destinationAddress!='' && shipName!='' && shipNo!='' && departureDateTime!='' && estimateDateTime!='' && exporterId!=''){
-		
-    var departureDateTime = new Date(result.departureDateTime * 1000).toLocaleString();
-    var estimateDateTime = new Date(result.estimateDateTime * 1000).toLocaleString();
-    exporterData.html =  `<tr>
+
+		var departureDateTime = new Date(result.departureDateTime * 1000).toLocaleString();
+		var estimateDateTime = new Date(result.estimateDateTime * 1000).toLocaleString();
+		exporterData.html =  `<tr>
                             <td><b>Quantity:</b></td>
                             <td>`+quantity+` (in Kg) <i class="fa fa-check-circle verified_info"></i></td>
                           </tr>
@@ -308,15 +308,15 @@ function buildExporterBlock(result){
                             <td><b>Exporter Id:</b></td>
                             <td>`+exporterId+` <i class="fa fa-check-circle verified_info"></i></td>
                           </tr>`;
-        exporterData.isDataAvail = true;                  
+		exporterData.isDataAvail = true;
 	}else{
-    	exporterData.html = ` <tr>
+		exporterData.html = ` <tr>
                                     <td colspan="2"><p>Information Not Avilable</p></td>
                         </tr>`;
-        exporterData.isDataAvail = false;                
-    }   
+		exporterData.isDataAvail = false;
+	}
 
-    return exporterData;
+	return exporterData;
 }
 
 function buildImporterBlock(result){
@@ -331,9 +331,9 @@ function buildImporterBlock(result){
 	var importerId       = result.importerId;
 
 	if(quantity!='' && shipName!='' && shipNo!='' && arrivalDateTime!='' && transportInfo!='' && warehouseName!='' && warehouseAddress!='' && importerId!=''){
-		
-    var arrivalDateTime = new Date(result.arrivalDateTime * 1000).toLocaleString();
-    importerData.html =  `<tr>
+
+		var arrivalDateTime = new Date(result.arrivalDateTime * 1000).toLocaleString();
+		importerData.html =  `<tr>
                             <td><b>Quantity:</b></td>
                             <td>`+quantity+` (in Kg) <i class="fa fa-check-circle verified_info"></i></td>
                           </tr>
@@ -365,15 +365,15 @@ function buildImporterBlock(result){
                             <td><b>Importer Id:</b></td>
                             <td>`+importerId+` <i class="fa fa-check-circle verified_info"></i></td>
                           </tr>`;
-        importerData.isDataAvail = true;                  
-    }else{
-    	importerData.html = ` <tr>
+		importerData.isDataAvail = true;
+	}else{
+		importerData.html = ` <tr>
                                     <td colspan="2"><p>Information Not Avilable</p></td>
                         </tr>`;
-        importerData.isDataAvail = false;                
-    }
+		importerData.isDataAvail = false;
+	}
 
-    return importerData;    
+	return importerData;
 }
 
 function buildProcessorBlock(result){
@@ -387,10 +387,10 @@ function buildProcessorBlock(result){
 	var processorAddress = result.processorAddress;
 
 	if(quantity!='' && temperature!='' && rostingDuration!='' && internalBatchNo!='' && packageDateTime!='' && processorName!='' && processorAddress!=''){
-		
-    var packageDateTime = new Date(result.packageDateTime * 1000).toLocaleString();
 
-    processorData.html =  `<tr>
+		var packageDateTime = new Date(result.packageDateTime * 1000).toLocaleString();
+
+		processorData.html =  `<tr>
                             <td><b>Quantity:</b></td>
                             <td>`+result.quantity+` (in Kg) <i class="fa fa-check-circle verified_info"></i></td>
                           </tr>
@@ -419,13 +419,14 @@ function buildProcessorBlock(result){
                             <td>`+result.processorAddress+` <i class="fa fa-check-circle verified_info"></i></td>
                           </tr>
                           <tr>`;
-        processorData.isDataAvail = true;                  
-    }else{
-    	processorData.html = ` <tr>
+		processorData.isDataAvail = true;
+	}else{
+		processorData.html = ` <tr>
                                     <td colspan="2"><p>Information Not Avilable</p></td>
                         </tr>`;
-        processorData.isDataAvail = false;                
-    }    
-    
-    return processorData; 
+		processorData.isDataAvail = false;
+	}
+
+	return processorData;
 }
+

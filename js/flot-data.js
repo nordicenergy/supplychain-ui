@@ -1,5 +1,5 @@
 // Real Time chart
-        
+
 
         var data = [],
             totalPoints = 300;
@@ -62,7 +62,7 @@
             xaxis: {
                 show: false
             },
-            colors: ["#fb9678"],
+            colors: ["#ffd633"],
             grid: {
                 color: "#AFAFAF",
                 hoverable: true,
@@ -74,7 +74,7 @@
                 content: "Y: %y",
                 defaultTheme: false
             }
-        
+
 
         });
 
@@ -121,7 +121,7 @@ $(document).ready(function() {
                 min: -1.2,
                 max: 1.2
             },
-              colors: ["#fb9678", "#01c0c8"],   
+              colors: ["#ffd633", " #cca300"],
             grid: {
                 color: "#AFAFAF",
                 hoverable: true,
@@ -141,14 +141,14 @@ $(document).ready(function() {
         var plotObj = $.plot($("#flot-line-chart"), [{
                 data: sin,
                 label: "sin(x)",
-               
+
             }, {
                 data: cos,
                 label: "cos(x)"
             }],
             options);
     }
-});      
+});
 //Flot Pie Chart
 $(function() {
 
@@ -156,19 +156,19 @@ $(function() {
         label: "Series 0",
         data: 10,
         color: "#4f5467",
-        
+
     }, {
         label: "Series 1",
         data: 1,
-        color: "#00c292",
+        color: "#ffd11a",
     }, {
         label: "Series 2",
         data: 3,
-        color:"#01c0c8",
+        color:" #cca300",
     }, {
         label: "Series 3",
         data: 1,
-        color:"#fb9678",
+        color:"#ffd633",
     }];
 
     var plotObj = $.plot($("#flot-pie-chart"), data, {
@@ -244,7 +244,7 @@ $(function() {
     //
 
     var plot = $.plot(container, series, {
-        colors: ["#01c0c8"],
+        colors: [" #cca300"],
         grid: {
             borderWidth: 0,
             minBorderMargin: 20,
@@ -332,7 +332,7 @@ $(function() {
     };
     var barData = {
         label: "bar",
-        color: "#fb9678",
+        color: "#ffd633",
         data: [
             [1354521600000, 1000],
             [1355040000000, 2000],
@@ -361,7 +361,7 @@ $(function() {
         for (var i = 0; i <= 10; i += 1)
             d3.push([i, parseInt(Math.random() * 25)]);
 
-        var ds = new Array();
+        var ds = [];
 
         ds.push({
             label : "Data One",
@@ -436,7 +436,7 @@ $(function() {
                     color : '#bdbdbd'
                 }
             },
-            colors : ["#4F5467", "#01c0c8", "#fb9678"],
+            colors : ["#4F5467", " #cca300", "#ffd633"],
             tooltip : true, //activate tooltip
             tooltipOpts : {
                 content : "%s : %y.0",

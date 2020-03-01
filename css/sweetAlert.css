@@ -139,8 +139,8 @@ body.stop-scrolling {
     transition: all 0.3s; }
     .sweet-alert input:focus {
       outline: none;
-      box-shadow: 0px 0px 3px #c4e6f5;
-      border: 1px solid #b4dbed; }
+      box-shadow: 0px 0px 3px #e6b800;
+      border: 1px solid #cca300; }
       .sweet-alert input:focus::-moz-placeholder {
         transition: opacity 0.3s 0.03s ease;
         opacity: 0.5; }
@@ -170,7 +170,7 @@ body.stop-scrolling {
     opacity: 0;
     visibility: hidden; }
   .sweet-alert button {
-    background-color: #8CD4F5;
+    background-color: #e6b800;
     color: white;
     border: none;
     box-shadow: none;
@@ -185,9 +185,9 @@ body.stop-scrolling {
       outline: none;
       box-shadow: 0 0 2px rgba(128, 179, 235, 0.5), inset 0 0 0 1px rgba(0, 0, 0, 0.05); }
     .sweet-alert button:hover {
-      background-color: #7ecff4; }
+      background-color:  #ffcc00; }
     .sweet-alert button:active {
-      background-color: #5dc2f1; }
+      background-color: #cca300; }
     .sweet-alert button.cancel {
       background-color: #C1C1C1; }
       .sweet-alert button.cancel:hover {
@@ -244,7 +244,7 @@ body.stop-scrolling {
           transform: rotate(-45deg);
           right: 16px; }
     .sweet-alert .sa-icon.sa-warning {
-      border-color: #F8BB86; }
+      border-color: #ffcc00; }
       .sweet-alert .sa-icon.sa-warning .sa-body {
         position: absolute;
         width: 5px;
@@ -254,7 +254,7 @@ body.stop-scrolling {
         -webkit-border-radius: 2px;
         border-radius: 2px;
         margin-left: -2px;
-        background-color: #F8BB86; }
+        background-color: #ffcc00; }
       .sweet-alert .sa-icon.sa-warning .sa-dot {
         position: absolute;
         width: 7px;
@@ -264,9 +264,9 @@ body.stop-scrolling {
         margin-left: -3px;
         left: 50%;
         bottom: 10px;
-        background-color: #F8BB86; }
+        background-color: #ffcc00; }
     .sweet-alert .sa-icon.sa-info {
-      border-color: #C9DAE1; }
+      border-color: #d9d9d9; }
       .sweet-alert .sa-icon.sa-info::before {
         content: "";
         position: absolute;
@@ -276,7 +276,7 @@ body.stop-scrolling {
         bottom: 17px;
         border-radius: 2px;
         margin-left: -2px;
-        background-color: #C9DAE1; }
+        background-color: #d9d9d9; }
       .sweet-alert .sa-icon.sa-info::after {
         content: "";
         position: absolute;
@@ -285,7 +285,7 @@ body.stop-scrolling {
         border-radius: 50%;
         margin-left: -3px;
         top: 19px;
-        background-color: #C9DAE1; }
+        background-color: #d9d9d9; }
     .sweet-alert .sa-icon.sa-success {
       border-color: #A5DC86; }
       .sweet-alert .sa-icon.sa-success::before, .sweet-alert .sa-icon.sa-success::after {
@@ -686,13 +686,13 @@ body.stop-scrolling {
   0% {
     border-color: #F8D486; }
   100% {
-    border-color: #F8BB86; } }
+    border-color: #ffcc00; } }
 
 @keyframes pulseWarning {
   0% {
     border-color: #F8D486; }
   100% {
-    border-color: #F8BB86; } }
+    border-color: #ffcc00; } }
 
 .pulseWarning {
   -webkit-animation: pulseWarning 0.75s infinite alternate;
@@ -702,13 +702,13 @@ body.stop-scrolling {
   0% {
     background-color: #F8D486; }
   100% {
-    background-color: #F8BB86; } }
+    background-color: #ffcc00; } }
 
 @keyframes pulseWarningIns {
   0% {
     background-color: #F8D486; }
   100% {
-    background-color: #F8BB86; } }
+    background-color: #ffcc00; } }
 
 .pulseWarningIns {
   -webkit-animation: pulseWarningIns 0.75s infinite alternate;

@@ -3,7 +3,7 @@
   margin: 0 0 20px 0;
   padding: 20px 0 20px 30px;
   color: rgba(0, 0, 0, 0.5);
-  border: 1px solid #d8e0e5;
+  border: 1px solid #d9d9d9;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
@@ -34,7 +34,7 @@
   font-size: 12px;
   display: block;
   width: 100%;
-  border: 1px solid #d8e0e5;
+  border: 1px solid #d9d9d9;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   text-align: center;
@@ -53,7 +53,7 @@
   margin: 0 0 60px 0;
   padding: 30px 0 20px 30px;
   color: rgba(0, 0, 0, 0.5);
-  border: 1px solid #d8e0e5;
+  border: 1px solid #d9d9d9;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
@@ -83,7 +83,7 @@
   display: block;
   width: 150px;
   height: 40px;
-  border: 1px solid #d8e0e5;
+  border: 1px solid #d9d9d9;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   background: #fff;

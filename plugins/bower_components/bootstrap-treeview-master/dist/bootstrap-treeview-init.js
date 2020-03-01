@@ -140,7 +140,7 @@ $(function() {
 
 
         $('#treeview1').treeview({
-          selectedBackColor: "#03a9f3",
+          selectedBackColor: "#ffcc00",
           onhoverColor: "rgba(0, 0, 0, 0.05)",
           expandIcon: 'ti-plus',
           collapseIcon: 'ti-minus',
@@ -150,7 +150,7 @@ $(function() {
 
         $('#treeview2').treeview({
           levels: 1,
-          selectedBackColor: "#03a9f3",
+          selectedBackColor: "#ffcc00",
           onhoverColor: "rgba(0, 0, 0, 0.05)",
           expandIcon: 'ti-plus',
           collapseIcon: 'ti-minus',
@@ -160,7 +160,7 @@ $(function() {
 
         $('#treeview3').treeview({
           levels: 99,
-          selectedBackColor: "#03a9f3",
+          selectedBackColor: "#ffcc00",
           onhoverColor: "rgba(0, 0, 0, 0.05)",
           expandIcon: 'ti-plus',
           collapseIcon: 'ti-minus',
@@ -171,7 +171,7 @@ $(function() {
         $('#treeview4').treeview({
 
           color: "#428bca",
-          selectedBackColor: "#03a9f3",
+          selectedBackColor: "#ffcc00",
           onhoverColor: "rgba(0, 0, 0, 0.05)",
           expandIcon: 'ti-plus',
           collapseIcon: 'ti-minus',
@@ -180,17 +180,17 @@ $(function() {
         });
 
         $('#treeview5').treeview({
-         
+
           expandIcon: 'ti-angle-right',
           onhoverColor: "rgba(0, 0, 0, 0.05)",
-          selectedBackColor: "#03a9f3",
+          selectedBackColor: "#ffcc00",
           collapseIcon: 'ti-angle-down',
           nodeIcon: 'glyphicon glyphicon-bookmark',
           data: defaultData
         });
 
         $('#treeview6').treeview({
-         selectedBackColor: "#03a9f3",
+         selectedBackColor: "#ffcc00",
          onhoverColor: "rgba(0, 0, 0, 0.05)",
           expandIcon: "glyphicon glyphicon-stop",
           collapseIcon: "glyphicon glyphicon-unchecked",
@@ -246,7 +246,7 @@ $(function() {
 
 
         var $searchableTree = $('#treeview-searchable').treeview({
-          selectedBackColor: "#03a9f3",
+          selectedBackColor: "#ffcc00",
           onhoverColor: "rgba(0, 0, 0, 0.05)",
             expandIcon: 'ti-plus',
             collapseIcon: 'ti-minus',
@@ -268,7 +268,7 @@ $(function() {
             output += '<p>- ' + result.text + '</p>';
           });
           $('#search-output').html(output);
-        }
+        };
 
         $('#btn-search').on('click', search);
         $('#input-search').on('keyup', search);
@@ -282,7 +282,7 @@ $(function() {
 
         var initSelectableTree = function() {
           return $('#treeview-selectable').treeview({
-            
+
             data: defaultData,
             multiSelect: $('#chk-select-multi').is(':checked'),
             onNodeSelected: function(event, node) {
@@ -303,7 +303,7 @@ $(function() {
         $('#chk-select-multi:checkbox').on('change', function () {
           console.log('multi-select change');
           $selectableTree = initSelectableTree();
-          selectableNodes = findSelectableNodes();          
+          selectableNodes = findSelectableNodes();
         });
 
         // Select/unselect/toggle nodes

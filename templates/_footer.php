@@ -1,11 +1,11 @@
-        <footer class="footer text-center"> 
-            © <?php echo date('Y');?> Coffee SupplyChain by <a href="http://www.imperialsoftech.com/" target="_blank">imperialsoftech.com</a> 
+        <footer class="footer text-center">
+            © <?php echo date('Y');?> PowerChain SupplyChain by <a href="https://www.nordicenergy.co/" target="_blank">nordicenergy.co</a>
         </footer>
         </div>
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
-    
+
     <!-- Bootstrap Core JavaScript -->
     <script src="plugins/bower_components/bootstrap/dist/js/tether.min.js"></script>
     <script src="plugins/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -43,7 +43,7 @@
 
     <!--  contract abi  -->
     <script type="text/javascript" src="js/web3.min.js"></script>
-    <script type="text/javascript" src="js/abi/CoffeeSupplyChainAbi.js"></script>
+    <script type="text/javascript" src="js/abi/NordicEnergySupplyChainAbi.js"></script>
     <script type="text/javascript" src="js/abi/SupplyChainUserAbi.js"></script>
 
 
@@ -55,7 +55,7 @@
 
     <script type="text/javascript" src="js/app/app.js"></script>
 
-    <?php 
+    <?php
         if(isset($_SERVER['SCRIPT_NAME']) && strpos($_SERVER['SCRIPT_NAME'], "admin.php") !== false)
         {
             ?>
@@ -69,7 +69,7 @@
             <?php
         }
     ?>
-    
+
     <script type="text/javascript" src="js/app/batch-details.js"></script>
     <script type="text/javascript">
         $('.qr-code-magnify').magnificPopup({

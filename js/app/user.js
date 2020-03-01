@@ -9,7 +9,7 @@ var userForm,
     processingForm;
 
 $(document).ready(function(){
-  
+
   userForm =  $("#updateUserForm").parsley();
   farmInspectionForm =  $("#farmInspectionForm").parsley();
   harvesterForm =  $("#harvesterForm").parsley(); exporterForm =  $("#exporterForm").parsley(); importerForm =  $("#importerForm").parsley();
@@ -24,13 +24,13 @@ $(document).ready(function(){
 
 $(window).on("coinbaseReady", function ()
 {
-    getUser(globUserContract, function(data){      
+    getUser(globUserContract, function(data){
 
       globCurrentUser = data ;
 
       if(data.isActive == true){
-        if(data.name.trim().length <=0 && 
-           data.contactNo.trim().length <=0 && 
+        if(data.name.trim().length <=0 &&
+           data.contactNo.trim().length <=0 &&
            data.role.trim().length <=0 )
         {
           swal("Oops","Your Account was not found , Please contact Admin ","error");
@@ -46,7 +46,7 @@ $(window).on("coinbaseReady", function ()
               text: "Your Account is blocked by Admin , Please contact to Admin",
               type: "error",
               showCancelButton: false,
-              confirmButtonColor: "#DD6B55",
+              confirmButtonColor: "#cca300",
               confirmButtonText: "Ok",
               closeOnConfirm: false
             },
@@ -58,13 +58,13 @@ $(window).on("coinbaseReady", function ()
               }
             });
           return ;
-      }  
+      }
 
       $("#userImage").attr('src','https://ipfs.io/ipfs/'+data.profileHash);
       $("#userName").html(data.name);
       $("#userContact").html(data.contactNo);
       $("#userRole").html(data.role);
-      
+
     });
 
     getCultivationEvents(globMainContract);
@@ -74,7 +74,7 @@ $(window).on("coinbaseReady", function ()
 $("#editUser").on('click',function(){
   startLoader();
   getUser(globUserContract, function(data){
-       
+
        $("#fullname").val(data.name);
        $("#contactNumber").val(data.contactNo);
        $("#role").val(data.role);
@@ -106,9 +106,9 @@ $("#userFormBtn").on('click',function(){
           role : role,
           status : userStatus,
           profile : profileHash
-      };    
+      };
 
-      updateUser(globUserContract, userDetails); 
+      updateUser(globUserContract, userDetails);
     }
 });
 
@@ -116,13 +116,13 @@ function getUser(contractRef,callback)
 {
    contractRef.methods.getUser(globCoinbase).call(function (error, result) {
         if(error){
-            alert("Unable to get User" + error);    
+            alert("Unable to get User" + error);
         }
         newUser = result;
         if (callback)
         {
             callback(newUser);
-        }        
+        }
     });
 }
 
@@ -132,7 +132,7 @@ function updateUser(contractRef,data)
   .send({from:globCoinbase,to:contractRef.address})
   .on('transactionHash',function(hash)
         {
-          $.magnificPopup.instance.close()
+          $.magnificPopup.instance.close();
           handleTransactionResponse(hash);
           $("#userFormModel").modal('hide');
         })
@@ -145,8 +145,8 @@ function updateUser(contractRef,data)
         .on('error',function(error)
         {
             handleGenericError(error.message);
-            return;     
-        });    
+
+        });
 }
 
 /* --------------- Activity Section -----------------------*/
@@ -160,41 +160,41 @@ function editActivity(batchNo)
 /* --------------- Farm Inspection Section -----------------------*/
 
 
-$("#updateFarmInspection").on('click',function(){
+$("#updateProsumerInspection").on('click',function(){
 
     if(farmInspectionForm.validate())
     {
       var data = {
         batchNo : globCurrentEditingBatchNo,
-        coffeeFamily : $("#coffeeFamily").val().trim(),
+        nordicEnergy : $("#nordicEnergy").val().trim(),
         typeOfSeed : $("#typeOfSeed").val().trim(),
         fertilizerUsed : $("#fertilizerUsed").val().trim(),
-      };    
+      };
 
-      updateFarmInspection(globMainContract, data); 
+      updateFarmInspection(globMainContract, data);
     }
 });
 
 function updateFarmInspection(contractRef,data)
 {
   //contractRef.methods.updateUser("Swapnali","9578774787","HARVESTER",true,"0x74657374")
-  contractRef.methods.updateFarmInspectorData(data.batchNo, data.coffeeFamily,data.typeOfSeed, data.fertilizerUsed)
+  contractRef.methods.updateProsumerInspectorData(data.batchNo, data.nordicEnergy,data.typeOfSeed, data.fertilizerUsed)
   .send({from:globCoinbase,to:contractRef.address})
   .on('transactionHash',function(hash)
         {
-          $.magnificPopup.instance.close()
+          $.magnificPopup.instance.close();
           handleTransactionResponse(hash);
         })
         .on('receipt',function(receipt)
         {
-            receiptMessage = "Farm Inspection Updated Succussfully";
+            receiptMessage = "PowerStation Inspection Updated Succussfully";
             handleTransactionReceipt(receipt,receiptMessage)
         })
         .on('error',function(error)
         {
             handleGenericError(error.message);
-            return;     
-        });    
+
+        });
 }
 
 /* --------------- Harvest Section -----------------------*/
@@ -209,9 +209,9 @@ $("#updateHarvest").on('click',function(){
         cropVariety : $("#cropVariety").val().trim(),
         temperatureUsed : $("#temperatureUsed").val().trim(),
         humidity : $("#humidity").val().trim(),
-      };    
+      };
 
-      updateHarvest(globMainContract, data); 
+      updateHarvest(globMainContract, data);
     }
 });
 
@@ -222,7 +222,7 @@ function updateHarvest(contractRef,data)
   .send({from:globCoinbase,to:contractRef.address})
   .on('transactionHash',function(hash)
         {
-          $.magnificPopup.instance.close()
+          $.magnificPopup.instance.close();
           handleTransactionResponse(hash);
         })
         .on('receipt',function(receipt)
@@ -233,8 +233,8 @@ function updateHarvest(contractRef,data)
         .on('error',function(error)
         {
             handleGenericError(error.message);
-            return;     
-        });    
+
+        });
 }
 
 
@@ -246,7 +246,7 @@ $("#updateExport").on('click',function(){
     if(exporterForm.validate())
     {
       var tmpDate = $("#estimateDateTime").val().trim().split("-");
-      tmpDate = tmpDate[1]+"/"+tmpDate[0]+"/"+tmpDate[2];     
+      tmpDate = tmpDate[1]+"/"+tmpDate[0]+"/"+tmpDate[2];
 
       var data = {
         batchNo : globCurrentEditingBatchNo,
@@ -257,9 +257,9 @@ $("#updateExport").on('click',function(){
         estimateDateTime : new Date(tmpDate).getTime() / 1000,
         plantNo : 0,
         exporterId : parseInt($("#exporterId").val().trim()),
-      };    
+      };
 
-      updateExport(globMainContract, data); 
+      updateExport(globMainContract, data);
     }
 });
 
@@ -270,7 +270,7 @@ function updateExport(contractRef,data)
   .send({from:globCoinbase,to:contractRef.address})
   .on('transactionHash',function(hash)
         {
-          $.magnificPopup.instance.close()
+          $.magnificPopup.instance.close();
           handleTransactionResponse(hash);
         })
         .on('receipt',function(receipt)
@@ -281,8 +281,8 @@ function updateExport(contractRef,data)
         .on('error',function(error)
         {
             handleGenericError(error.message);
-            return;     
-        });    
+
+        });
 }
 
 /* --------------- Import Section -----------------------*/
@@ -301,9 +301,9 @@ $("#updateImport").on('click',function(){
         warehouseName : ($("#warehouseName").val().trim()),
         warehouseAddress : ($("#warehouseAddress").val().trim()),
         importerId : parseInt($("#importerId").val().trim()),
-      };    
+      };
 
-      updateImport(globMainContract, data); 
+      updateImport(globMainContract, data);
     }
 });
 
@@ -314,7 +314,7 @@ function updateImport(contractRef,data)
   .send({from:globCoinbase,to:contractRef.address})
   .on('transactionHash',function(hash)
         {
-          $.magnificPopup.instance.close()
+          $.magnificPopup.instance.close();
           handleTransactionResponse(hash);
         })
         .on('receipt',function(receipt)
@@ -325,8 +325,8 @@ function updateImport(contractRef,data)
         .on('error',function(error)
         {
             handleGenericError(error.message);
-            return;     
-        });    
+
+        });
 }
 
 /* --------------- Processor Section -----------------------*/
@@ -347,9 +347,9 @@ $("#updateProcessor").on('click',function(){
         packageDateTime : new Date(tmpDate).getTime() / 1000 ,
         processorName : ($("#processorName").val().trim()),
         processorAddress : ($("#processorAddress").val().trim()),
-      };    
+      };
 
-      updateProcessor(globMainContract, data); 
+      updateProcessor(globMainContract, data);
     }
 });
 
@@ -360,7 +360,7 @@ function updateProcessor(contractRef,data)
   .send({from:globCoinbase,to:contractRef.address})
   .on('transactionHash',function(hash)
         {
-          $.magnificPopup.instance.close()
+          $.magnificPopup.instance.close();
           handleTransactionResponse(hash);
         })
         .on('receipt',function(receipt)
@@ -371,14 +371,14 @@ function updateProcessor(contractRef,data)
         .on('error',function(error)
         {
             handleGenericError(error.message);
-            return;     
-        });    
+
+        });
 }
 
 function getCultivationEvents(contractRef) {
     contractRef.getPastEvents('PerformCultivation', {
         fromBlock: 0
-    }).then(function (events) 
+    }).then(function (events)
     {
       $("#totalBatch").html(events.length);
       counterInit();
@@ -395,7 +395,7 @@ function getCultivationEvents(contractRef) {
                 finalEvents.push(tmpData);
             });
         });
-        
+
         setTimeout(function()
         {
           if(finalEvents.length > 0){
@@ -403,10 +403,10 @@ function getCultivationEvents(contractRef) {
               $("#userCultivationTable").find("tbody").html(table);
 
               reInitPopupForm();
-          }    
-        },1000); 
+          }
+        },1000);
 
-        
+
 
         // $("#transactions tbody").html(buildTransactionData(events));
     }).catch(error => {
@@ -419,20 +419,20 @@ function buildCultivationTable(finalEvents)
     $.magnificPopup.instance.popupsCache = {};
 
     var table = "";
-    
+
     for (var tmpDataIndex in finalEvents)
-    {   
+    {
         var elem = finalEvents[tmpDataIndex];
         var batchNo = elem.batchNo;
         var transactionHash = elem.transactionHash;
         var tr = "";
-        
-        if (elem.status == "FARM_INSPECTION") {
+
+        if (elem.status == "POWERSTATION_INSPECTION") {
             tr = `<tr>
                     <td>`+batchNo+`</td>
                   `;
-                  
-              if(globCurrentUser.role == "FARM_INSPECTION")
+
+              if(globCurrentUser.role == "POWERSTATION_INSPECTION")
               {
                 tr+=`<td>
                           <span class="label label-inverse font-weight-100">
@@ -446,7 +446,7 @@ function buildCultivationTable(finalEvents)
                  tr+=`<td><span class="label label-warning font-weight-100">Processing</span> </td>`;
               }
 
-                
+
           tr+=`<td><span class="label label-danger font-weight-100">Not Available</span> </td>
               <td><span class="label label-danger font-weight-100">Not Available</span> </td>
               <td><span class="label label-danger font-weight-100">Not Available</span> </td>
@@ -471,7 +471,7 @@ function buildCultivationTable(finalEvents)
                   else
                   {
                      tr+=`<td><span class="label label-warning font-weight-100">Processing</span> </td>`;
-                  }        
+                  }
 
             tr+=`
                 <td><span class="label label-danger font-weight-100">Not Available</span> </td>
@@ -486,7 +486,7 @@ function buildCultivationTable(finalEvents)
                     <td><span class="label label-success font-weight-100">Completed</span></td>
                     <td><span class="label label-success font-weight-100">Completed</span> </td>
                   `;
-                  
+
                   if(globCurrentUser.role == "EXPORTER")
                   {
                     tr+=`<td>
@@ -499,7 +499,7 @@ function buildCultivationTable(finalEvents)
                   else
                   {
                      tr+=`<td><span class="label label-warning font-weight-100">Processing</span> </td>`;
-                  } 
+                  }
 
               tr+=`  
                     <td><span class="label label-danger font-weight-100">Not Available</span> </td>
@@ -512,7 +512,7 @@ function buildCultivationTable(finalEvents)
                     <td><span class="label label-success font-weight-100">Completed</span></td>
                     <td><span class="label label-success font-weight-100">Completed</span> </td>
                     <td><span class="label label-success font-weight-100">Completed</span> </td>
-                  `;  
+                  `;
 
                   if(globCurrentUser.role == "IMPORTER")
                   {
@@ -526,7 +526,7 @@ function buildCultivationTable(finalEvents)
                   else
                   {
                      tr+=`<td><span class="label label-warning font-weight-100">Processing</span> </td>`;
-                  } 
+                  }
 
               tr+=` <td><span class="label label-danger font-weight-100">Not Available</span> </td>
                     <td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
@@ -539,7 +539,7 @@ function buildCultivationTable(finalEvents)
                     <td><span class="label label-success font-weight-100">Completed</span> </td>
                     <td><span class="label label-success font-weight-100">Completed</span> </td>
                   `;
-                  
+
                   if(globCurrentUser.role == "PROCESSOR")
                   {
                     tr+=`<td>
@@ -552,7 +552,7 @@ function buildCultivationTable(finalEvents)
                   else
                   {
                      tr+=`<td><span class="label label-warning font-weight-100">Processing</span> </td>`;
-                  }  
+                  }
                 tr+=`    
                     <td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
                 </tr>`;
@@ -564,18 +564,18 @@ function buildCultivationTable(finalEvents)
                     <td><span class="label label-success font-weight-100">Completed</span> </td>
                     <td><span class="label label-success font-weight-100">Completed</span> </td>
                     <td><span class="label label-success font-weight-100">Completed</span> </td>
-                  `;  
+                  `;
                 tr+=`    
                     <td><a href="view-batch.php?batchNo=`+batchNo+`&txn=`+transactionHash+`" target="_blank" class="text-inverse p-r-10" data-toggle="tooltip" title="View"><i class="ti-eye"></i></a> </td>
                 </tr>`;
         }
-            
+
         table+=tr;
     }
 
 
     return table;
-    
+
 }
 
 function getBatchStatus(contractRef, batchNo)

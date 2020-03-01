@@ -52,18 +52,18 @@ body {
   color: #ffffff;
 }
 .navbar-header {
-  background: #fb9678;
+  background: #ffd633;
 }
 .navbar-top-links > li > a {
   color: #ffffff;
 }
 /*Right panel*/
 .right-sidebar .rpanel-title {
-  background: #fb9678;
+  background: #ffd633;
 }
 /*Bread Crumb*/
 .bg-title .breadcrumb .active {
-  color: #fb9678;
+  color: #ffd633;
 }
 /*Sidebar*/
 .sidebar {
@@ -71,7 +71,7 @@ body {
   box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
 }
 .sidebar .label-custom {
-  background: #01c0c8;
+  background:  #cca300;
 }
 #side-menu li a {
   color: #a6acbc;
@@ -89,15 +89,15 @@ body {
   border-color: #4F5467;
 }
 #side-menu > li > a.active {
-  border-bottom: 2px solid #fb9678;
+  border-bottom: 2px solid #ffd633;
   color: #ffffff;
   font-weight: 500;
 }
 #side-menu > li > a.active i {
-  color: #fb9678;
+  color: #ffd633;
 }
 #side-menu ul > li > a:hover {
-  color: #fb9678;
+  color: #ffd633;
   background: none;
 }
 #side-menu ul > li > a.active {
@@ -108,10 +108,10 @@ body {
   background: #393e4f;
 }
 .sidebar #side-menu .user-pro .nav-second-level a:hover {
-  color: #fb9678;
+  color: #ffd633;
 }
 #side-menu .nav-second-level li:hover > a {
-  color: #fb9678;
+  color: #ffd633;
 }
 #side-menu .nav-second-level.two-li {
   background: #393e4f;
@@ -124,48 +124,48 @@ body {
   }
 }
 .fix-sidebar .top-left-part {
-  background: #fb9678;
+  background: #ffd633;
 }
 /*themecolor*/
 .bg-theme {
-  background-color: #fb9678 !important;
+  background-color: #ffd633 !important;
 }
 .bg-theme-dark {
-  background-color: #01c0c8 !important;
+  background-color:  #cca300 !important;
 }
 /*Chat widget*/
 .chat-list .odd .chat-text {
-  background: #fb9678;
+  background: #ffd633;
 }
 /*Button*/
 .btn-custom {
-  background: #fb9678;
-  border: 1px solid #fb9678;
+  background: #ffd633;
+  border: 1px solid #ffd633;
   color: #ffffff;
 }
 .btn-custom:hover {
-  background: #fb9678;
+  background: #ffd633;
   opacity: 0.8;
   color: #ffffff;
-  border: 1px solid #fb9678;
+  border: 1px solid #ffd633;
 }
 /*Custom tab*/
 .customtab li.active a,
 .customtab li.active a:hover,
 .customtab li.active a:focus {
-  border-bottom: 2px solid #fb9678;
-  color: #fb9678;
+  border-bottom: 2px solid #ffd633;
+  color: #ffd633;
 }
 .tabs-vertical li.active a,
 .tabs-vertical li.active a:hover,
 .tabs-vertical li.active a:focus {
-  background: #fb9678;
-  border-right: 2px solid #fb9678;
+  background: #ffd633;
+  border-right: 2px solid #ffd633;
 }
 /*Nav-pills*/
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:focus,
 .nav-pills > li.active > a:hover {
-  background: #fb9678;
+  background: #ffd633;
   color: #ffffff;
 }

@@ -5,10 +5,10 @@ $(".counter").counterUp({
 
  $('.vcarousel').carousel({
             interval: 3000
-         })
+         });
  $(document).ready(function() {
-    
-   var sparklineLogin = function() { 
+
+   var sparklineLogin = function() {
         $('#sparklinedash').sparkline([ 0, 5, 6, 10, 9, 12, 4, 9], {
             type: 'bar',
             height: '30',
@@ -23,7 +23,7 @@ $(".counter").counterUp({
             barWidth: '4',
             resize: true,
             barSpacing: '5',
-            barColor: '#9675ce'
+            barColor: '#e6b800'
         });
           $('#sparklinedash3').sparkline([ 0, 5, 6, 10, 9, 12, 4, 9], {
             type: 'bar',
@@ -31,7 +31,7 @@ $(".counter").counterUp({
             barWidth: '4',
             resize: true,
             barSpacing: '5',
-            barColor: '#03a9f3'
+            barColor: '#ffcc00'
         });
            $('#sparklinedash4').sparkline([ 0, 5, 6, 10, 9, 12, 4, 9], {
             type: 'bar',
@@ -39,12 +39,12 @@ $(".counter").counterUp({
             barWidth: '4',
             resize: true,
             barSpacing: '5',
-            barColor: '#f96262'
+            barColor: '#ffd11a'
         });
-        
-   }
+
+   };
     var sparkResize;
- 
+
         $(window).resize(function(e) {
             clearTimeout(sparkResize);
             sparkResize = setTimeout(sparklineLogin, 500);
@@ -57,7 +57,7 @@ $(".counter").counterUp({
         data: [{
                     period: '2010',
                     iphone: 10
-                    
+
                 }, {
                     period: '2011',
                     iphone: 1667
@@ -100,12 +100,12 @@ $(".counter").counterUp({
                 behaveLikeLine: true,
                 gridLineColor: '#e0e0e0',
                 hideHover: 'auto'
-        
+
     });
 
 $(document).ready(function() {
-    
-   var sparklineLogin = function() { 
+
+   var sparklineLogin = function() {
         $('#sales1').sparkline([20, 40, 30], {
             type: 'pie',
             height: '130',
@@ -120,10 +120,10 @@ $(document).ready(function() {
             barSpacing: '10',
             barColor: '#25a6f7'
         });
-        
-   }
+
+   };
     var sparkResize;
- 
+
         $(window).resize(function(e) {
             clearTimeout(sparkResize);
             sparkResize = setTimeout(sparklineLogin, 500);
@@ -131,7 +131,7 @@ $(document).ready(function() {
         sparklineLogin();
 
 });
-var icons = new Skycons({"color": "#ff6849"}),
+var icons = new Skycons({"color": "#cca300"}),
           list  = [
             "clear-day", "clear-night", "partly-cloudy-day",
             "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
@@ -144,7 +144,6 @@ for(i = list.length; i--; ) {
     for (e = elements.length; e--;){
         icons.set( elements[e], weatherType );
     }
-} 
-     
+}
+
       icons.play();
-    

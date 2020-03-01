@@ -100,7 +100,7 @@ var SupplyChainStorageAbi = [
 				"type": "address"
 			},
 			{
-				"name": "_coffeeFamily",
+				"name": "_nordicEnergy",
 				"type": "string"
 			},
 			{
@@ -343,7 +343,7 @@ var SupplyChainStorageAbi = [
 		"name": "getFarmInspectorData",
 		"outputs": [
 			{
-				"name": "coffeeFamily",
+				"name": "nordicEnergy",
 				"type": "string"
 			},
 			{
@@ -494,7 +494,7 @@ var SupplyChainStorageAbi = [
 				"type": "string"
 			},
 			{
-				"name": "_farmerName",
+				"name": "_prosumerName",
 				"type": "string"
 			},
 			{
@@ -536,7 +536,7 @@ var SupplyChainStorageAbi = [
 				"type": "string"
 			},
 			{
-				"name": "farmerName",
+				"name": "prosumerName",
 				"type": "string"
 			},
 			{
@@ -715,4 +715,4 @@ var SupplyChainStorageAbi = [
 		"name": "OwnershipTransferred",
 		"type": "event"
 	}
-]
+];

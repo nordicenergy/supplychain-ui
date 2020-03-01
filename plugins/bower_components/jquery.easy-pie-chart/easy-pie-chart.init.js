@@ -18,7 +18,7 @@
 		});
 		$('.easy-pie-chart-2').easyPieChart({
 			easing: 'easeOutBounce',
-			barColor : '#00c292',
+			barColor : '#ffd11a',
 			lineWidth: 3,
 			trackColor : false,
 			lineCap : 'butt',

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/imperialsofetch.png">
-    <title>Imperial Softech</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/nordicenergy.png">
+    <title>Nordic Energy</title>
     <!-- Bootstrap Core CSS -->
     <link href="plugins/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
@@ -30,14 +30,14 @@
             <div class="white-box">
                     <div class="form-group text-center">
                         <div class="col-xs-12">
-                             <!-- <img src="dist/images/imperialsofetch.png"/> -->
-                             <img src="plugins/images/coffee-supplychain.png" style="width: 225px; height: 225px;" />
+                             <!-- <img src="dist/images/nordicenergy.png"/> -->
+                             <img src="plugins/images/nordicenergy-supplychain.png" style="width: 225px; height: 225px;" />
                         </div>
                     </div>
                     <div class="form-group  text-center">
                         <div class="col-xs-12">
-                           <h4><b>Welcome to Coffee Supplychain</b></h4>
-                            <h6>Supplychain using Ethereum smart contract, web3 and many more.</h6>
+                           <h4><b>Welcome to Nordic Energy Supplychain</b></h4>
+                            <h6>Supplychain using Ethereum smart contract, web3 and modern web technologies.</h6>
                         </div>
                     </div>
                     <div class="form-group text-center">
@@ -47,7 +47,7 @@
                          <div class="col-xs-6 p-b-20">
                             <a href="user.php" class="btn btn-rounded btn-block btn-info">Log In</a>
                         </div>
-                    </div>   
+                    </div>
             </div>
         </div>
     </section>

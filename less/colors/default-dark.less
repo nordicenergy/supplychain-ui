@@ -2,13 +2,13 @@
 
 /*Just change your choise color here its theme Colors*/
 
-@topbar:#fb9678;
+@topbar:#ffd633;
 @sidebar:#4F5467;
 @bodycolor:#f1f2f7;
 @headingtext: #2b2b2b;
 @bodytext: #686868;
 @sidebar-text:#a6acbc;
-@themecolor:#fb9678;
+@themecolor:#ffd633;
 @dark-themecolor:#4F5467;
 @sidebar-dropdown:#393e4f;
 @sidebar-active:#444859;
@@ -23,7 +23,7 @@ body{
 
 .logo i{ color:@white;}
 
-.navbar-header{ 
+.navbar-header{
      background:@topbar;
 }
 .navbar-top-links > li > a{
@@ -41,7 +41,7 @@ body{
     color:@themecolor;
 }
 .bg-title{
-  
+
 }
 
 /*Sidebar*/
@@ -51,7 +51,7 @@ body{
     box-shadow:1px 0px 20px rgba(0, 0, 0, 0.08);
   .label-custom{
       background:@megna;
-  }  
+  }
 }
 #side-menu li a{
     color:@sidebar-text;
@@ -65,12 +65,12 @@ body{
     border-color:@sidebar;
     &:hover, &:focus{
         background:rgba(0, 0, 0, 0.07);
-        border-color:@sidebar;  
+        border-color:@sidebar;
     }
    &.active {
             border-bottom:2px solid @themecolor;
             color:@white;
-            
+
             font-weight:500;
         i{
           color:@themecolor;
@@ -101,14 +101,14 @@ body{
 }
 #side-menu .nav-second-level.two-li{
   background:@sidebar-dropdown;
-}  
+}
 @media(min-width:768px) {
-  .content-wrapper { 
+  .content-wrapper {
        #side-menu li a.active, #side-menu ul, .sidebar #side-menu > li:hover{
               background:@sidebar-active;
          }
 
-   }     
+   }
 }
 .fix-sidebar .top-left-part{
   background:@themecolor;

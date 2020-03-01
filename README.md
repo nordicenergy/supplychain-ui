@@ -1,4 +1,4 @@
-# Coffee Supply Chain UI
+# Nordic Energy Supply Chain UI
 ---
 **Configuration:**
 
@@ -6,7 +6,7 @@
 
 	- SupplyChainStorage
 	- SupplyChainUser
-	- CoffeeSupplyChain
+	- NordicEnergySupplyChain
 
 
 - Update Admin Wallet Address in js/app/app.js at line 10
@@ -17,7 +17,7 @@
     -   If you don't have XAMPP please check (https://www.apachefriends.org/download.html)
 ---    
 
-This is UI Implementation of Coffee Supplychain using Etheruem Smart Contract
+This is UI Implementation of Nordic EnergySupplychain using Etheruem Smart Contract
 More Details can be found at this link: 
 
-https://github.com/imperialsoftech/coffee-supplychain-ethereum
+https://github.com/nordicenergy/supplychain-platform-contracts/

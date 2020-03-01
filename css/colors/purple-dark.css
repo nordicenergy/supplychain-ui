@@ -52,18 +52,18 @@ body {
   color: #ffffff;
 }
 .navbar-header {
-  background: #ab8ce4;
+  background: #cca300;
 }
 .navbar-top-links > li > a {
   color: #ffffff;
 }
 /*Right panel*/
 .right-sidebar .rpanel-title {
-  background: #ab8ce4;
+  background: #cca300;
 }
 /*Bread Crumb*/
 .bg-title .breadcrumb .active {
-  color: #ab8ce4;
+  color: #cca300;
 }
 /*Sidebar*/
 .sidebar {
@@ -71,7 +71,7 @@ body {
   box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
 }
 .sidebar .label-custom {
-  background: #01c0c8;
+  background:  #cca300;
 }
 #side-menu li a {
   color: #a6acbc;
@@ -89,17 +89,17 @@ body {
   border-color: #4F5467;
 }
 #side-menu > li > a.active {
-  border-bottom: 2px solid #ab8ce4;
+  border-bottom: 2px solid #cca300;
   font-weight: 500;
 }
 #side-menu > li > a.active i {
-  color: #ab8ce4;
+  color: #cca300;
 }
 .sidebar #side-menu > li:hover a {
   background: #393e4f;
 }
 #side-menu ul > li > a:hover {
-  color: #ab8ce4;
+  color: #cca300;
   background: none;
 }
 #side-menu ul > li > a.active {
@@ -107,10 +107,10 @@ body {
   font-weight: 500;
 }
 .sidebar #side-menu .user-pro .nav-second-level a:hover {
-  color: #ab8ce4;
+  color: #cca300;
 }
 #side-menu .nav-second-level li:hover > a {
-  color: #ab8ce4;
+  color: #cca300;
 }
 #side-menu .nav-second-level.two-li {
   background: #393e4f;
@@ -123,48 +123,48 @@ body {
   }
 }
 .fix-sidebar .top-left-part {
-  background: #ab8ce4;
+  background: #cca300;
 }
 /*themecolor*/
 .bg-theme {
-  background-color: #fb9678 !important;
+  background-color: #ffd633 !important;
 }
 .bg-theme-dark {
-  background-color: #01c0c8 !important;
+  background-color:  #cca300 !important;
 }
 /*Chat widget*/
 .chat-list .odd .chat-text {
-  background: #ab8ce4;
+  background: #cca300;
 }
 /*Button*/
 .btn-custom {
-  background: #ab8ce4;
-  border: 1px solid #ab8ce4;
+  background: #cca300;
+  border: 1px solid #cca300;
   color: #ffffff;
 }
 .btn-custom:hover {
-  background: #ab8ce4;
+  background: #cca300;
   opacity: 0.8;
   color: #ffffff;
-  border: 1px solid #ab8ce4;
+  border: 1px solid #cca300;
 }
 /*Custom tab*/
 .customtab li.active a,
 .customtab li.active a:hover,
 .customtab li.active a:focus {
-  border-bottom: 2px solid #ab8ce4;
-  color: #ab8ce4;
+  border-bottom: 2px solid #cca300;
+  color: #cca300;
 }
 .tabs-vertical li.active a,
 .tabs-vertical li.active a:hover,
 .tabs-vertical li.active a:focus {
-  background: #ab8ce4;
-  border-right: 2px solid #ab8ce4;
+  background: #cca300;
+  border-right: 2px solid #cca300;
 }
 /*Nav-pills*/
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:focus,
 .nav-pills > li.active > a:hover {
-  background: #ab8ce4;
+  background: #cca300;
   color: #ffffff;
 }

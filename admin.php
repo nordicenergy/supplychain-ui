@@ -1,5 +1,5 @@
 <?php include('templates/_header.php'); ?>
-        
+
 
             <div class="container-fluid">
                 <div class="row bg-title">
@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="alert alert-info" id="divOngoingTransaction" style="display: none">Ongoing Transaction: <span id="linkOngoingTransaction">None</span> </div>
-                    </div>    
+                    </div>
                 </div>
 
                 <!-- /.row -->
@@ -49,21 +49,21 @@
                 </div>
                 <!--row -->
                 <!-- /.row -->
-                
+
 
                                <!-- row -->
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="white-box">
                              <a href="javascript:void(0);" class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light" onclick="javascript:$('#batchFormModel').modal();">Create Batch</a>
-                            <h3 class="box-title">Batches Overview</h3> 
+                            <h3 class="box-title">Batches Overview</h3>
                             <div class="table-responsive">
                                 <table class="table product-overview" id="adminCultivationTable">
                                     <thead>
                                         <tr>
                                             <th>Batch ID</th>
                                             <th>QR-Code</th>
-                                            <th>Farm Inspector</th>
+                                            <th>PowerStation Inspector</th>
                                             <th>Harvester</th>
                                             <th>Exporter</th>
                                             <th>Importer</th>
@@ -74,7 +74,7 @@
                                     <tbody>
                                          <tr>
                                              <td colspan="7" align="center">No Data Available</td>
-                                         </tr>   
+                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -103,9 +103,9 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-6 col-xs-12">
                         <div class="white-box">
-                            <h3 class="box-title">Coffee Supplychain Contract Address <i class="fa fa-qrcode fa-2x text-info"></i></h3>
+                            <h3 class="box-title">Nordic EnergySupplychain Contract Address <i class="fa fa-qrcode fa-2x text-info"></i></h3>
                             <ul class="list-inline two-part">
-                                <li class="text-right" id="coffeeSupplychainContractAddress">0x0000000000000000000000000000000000000000</li>
+                                <li class="text-right" id="nordicenergySupplychainContractAddress">0x0000000000000000000000000000000000000000</li>
                             </ul>
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-4 col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">User Roles</h3> 
+                            <h3 class="box-title">User Roles</h3>
                             <div class="table-responsive">
                                 <table class="table product-overview">
                                     <thead>
@@ -134,8 +134,8 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Farm Inspection</td>
-                                            <td><span class="label label-info font-weight-100">FARM_INSPECTION</span></td>
+                                            <td>PowerStation Inspection</td>
+                                            <td><span class="label label-info font-weight-100">POWERSTATION_INSPECTION</span></td>
                                         </tr>
                                          <tr>
                                             <td>Harvester</td>
@@ -161,7 +161,7 @@
                     <div class="col-md-12 col-lg-8 col-sm-12">
                         <div class="white-box">
                              <a href="javascript:void(0);" id="userFormClick" class="btn btn-info pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Create User</a>
-                            <h3 class="box-title">Users</h3> 
+                            <h3 class="box-title">Users</h3>
                             <div class="table-responsive">
                                 <table class="table product-overview table-responsive" id="tblUser">
                                     <thead>
@@ -174,7 +174,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       
+
                                     </tbody>
                                 </table>
                             </div>
@@ -182,7 +182,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-  
+
             </div>
             <!-- /.container-fluid -->
 
@@ -197,27 +197,27 @@
                             <form id="batchForm" onsubmit="return false;">
                             <fieldset style="border:0;">
                                 <div class="form-group">
-                                    <label class="control-label" for="farmerRegistrationNo">Farmer Registration No <i class="red">*</i></label>
-                                    <input type="text" class="form-control" id="farmerRegistrationNo" name="farmerRegistrationNo" placeholder="Registration No" data-parsley-required="true">
-                                </div> 
+                                    <label class="control-label" for="prosumerRegistrationNo">ProsumerRegistration No <i class="red">*</i></label>
+                                    <input type="text" class="form-control" id="prosumerRegistrationNo" name="prosumerRegistrationNo" placeholder="Registration No" data-parsley-required="true">
+                                </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="farmerName">Farmer Name <i class="red">*</i></label>
-                                    <input type="text" class="form-control" id="farmerName" name="farmerName" placeholder="Farmer Name" data-parsley-required="true">
-                                </div>                              
+                                    <label class="control-label" for="prosumerName">ProsumerName <i class="red">*</i></label>
+                                    <input type="text" class="form-control" id="prosumerName" name="prosumerName" placeholder="Prosumer Name" data-parsley-required="true">
+                                </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="farmerAddress">Farmer Address <i class="red">*</i></label>
-                                    <textarea class="form-control" id="farmerAddress" name="farmerAddress" placeholder="Farmer Address" data-parsley-required="true"></textarea>
+                                    <label class="control-label" for="prosumerAddress">ProsumerAddress <i class="red">*</i></label>
+                                    <textarea class="form-control" id="prosumerAddress" name="prosumerAddress" placeholder="Prosumer Address" data-parsley-required="true"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="exporterName">Exporter Name <i class="red">*</i></label>
                                     <input type="text" class="form-control" id="exporterName" name="exporterName" placeholder="Exporter Name" data-parsley-required="true">
-                                </div> 
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label" for="importerName">Importer Name <i class="red">*</i></label>
                                     <input type="text" class="form-control" id="importerName" name="importerName" placeholder="Importer Name" data-parsley-required="true">
-                                </div> 
+                                </div>
                             </fieldset>
-                            
+
                         </div>
                         <div class="modal-footer">
                              <button type="submit" onclick="addCultivationBatch();" class="fcbtn btn btn-primary btn-outline btn-1f">Submit</button>
@@ -240,11 +240,11 @@
                                     <div class="form-group">
                                         <label class="control-label" for="userWalletAddress">User Wallet Address <i class="red">*</i></label>
                                         <input type="text" class="form-control" id="userWalletAddress" name="userWalletAddress" placeholder="Wallet Address" data-parsley-required="true" minlength="42" maxlength="42">
-                                    </div> 
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label" for="userName">User Name <i class="red">*</i></label>
                                         <input type="text" class="form-control" id="userName" name="userName" placeholder="Name" data-parsley-required="true">
-                                    </div>                              
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label" for="userContactNo">User Contact <i class="red">*</i></label>
                                         <input type="text" class="form-control" id="userContactNo" name="userContactNo" placeholder="Contact No." data-parsley-required="true" data-parsley-type="digits" data-parsley-length="[10, 15]" maxlength="15">
@@ -253,16 +253,16 @@
                                         <label class="control-label" for="userRoles">User Role <i class="red">*</i></label>
                                         <select class="form-control" id="userRoles" name="userRoles" data-parsley-required="true">
                                             <option value="">Select Role</option>
-                                            <option value="FARM_INSPECTION">Farm Inspection</option>
+                                            <option value="POWERSTATION_INSPECTION">Power Station Inspection</option>
                                             <option value="HARVESTER">Harvester</option>
                                             <option value="EXPORTER">Exporter</option>
                                             <option value="IMPORTER">Importer</option>
                                             <option value="PROCESSOR">Processor</option>
-                                        </select>    
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="isActive">User Status</label>
-                                        <input type="checkbox" class="js-switch" data-color="#99d683" data-secondary-color="#f96262" id="isActive" name="isActive" data-size="small"/>
+                                        <input type="checkbox" class="js-switch" data-color="#99d683" data-secondary-color="#ffd11a" id="isActive" name="isActive" data-size="small"/>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="userProfileHash">Profile Image <i class="red">*</i></label>
@@ -271,7 +271,7 @@
                                         <span id="imageHash"></span>
                                     </div>
                                 </fieldset>
-                            
+
                         </div>
                         <div class="modal-footer">
                             <i style="display: none;" class="fa fa-spinner fa-spin"></i>
@@ -282,8 +282,8 @@
                 </div>
             </div>
 
-            
-            
+
+
 
         <script type="text/javascript">
             var batchFormInstance, userFormInstance;
@@ -296,8 +296,8 @@
 
             function initSwitch(){
                 /*For User Form Pop Up*/
-                 new Switchery($("#isActive")[0], $("#isActive").data());     
+                 new Switchery($("#isActive")[0], $("#isActive").data());
             }
         </script>
 
-<?php include('templates/_footer.php');?>            
+<?php include('templates/_footer.php');?>

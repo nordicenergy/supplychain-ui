@@ -100,7 +100,7 @@ $bs-height-xs:   (floor($font-size-small * 1.2) + $padding-small-vertical + 1);
 .btn-foursquare    { @include btn-social(#f94877); }
 .btn-github        { @include btn-social(#444444); }
 .btn-google-plus   { @include btn-social(#dd4b39); }
-.btn-instagram     { @include btn-social(#3f729b); }
+.btn-instagram     { @include btn-social(#737373); }
 .btn-linkedin      { @include btn-social(#007bb6); }
 .btn-microsoft     { @include btn-social(#2672ec); }
 .btn-openid        { @include btn-social(#f7931e); }
