@@ -20,4 +20,4 @@
 This is UI Implementation of Nordic EnergySupplychain using Etheruem Smart Contract
 More Details can be found at this link: 
 
-https://github.com/nordicenergy/supplychain-platform-contracts/
+https://github.com/nordicenergy/supplychain-contracts/
